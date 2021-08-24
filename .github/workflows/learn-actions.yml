@@ -10,3 +10,11 @@ jobs:
           node-version: '16'
       - run: npm install -g bats
       - run: bats -v
+      - run: echo $YOLO
+        env:
+          YOLO: ${{ env.YOLOVAR }}
+      - run: echo ${{ env.ACT }}
+      - run: echo ${{ secrets.TEST }}
+      - env:
+          testsecret: ${{ secrets.TEST }}
+        run: echo $testsecret
